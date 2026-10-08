@@ -14,6 +14,8 @@ $(OUT_DIR)/%.txt: $(SRC_DIR)/%.txt | $(OUT_DIR)
 
 $(OUT_DIR):
 	mkdir -p $@
+count: build ## report how many words were built
+	@wc -w $(OUTPUTS) | tail -1
 
 check:
 	@test -d "$(SRC_DIR)" || { echo "Error: source directory missing"; exit 1; }
